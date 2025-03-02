@@ -8,7 +8,7 @@ return {
       formatters = {
         black = {
           prepend_args = { "--fast" },
-        }
+        },
       },
       formatters_by_ft = {
         javascript = { "prettier" },
@@ -26,7 +26,6 @@ return {
         lua = { "stylua" },
         python = { "isort", "black" },
         go = { "goimports", "gofmt" },
-        rust = { "rustfmt", lsp_format = "fallback" },
         cpp = { "clang-format" },
         java = { "prettier" },
         terraform = { "tflint" },

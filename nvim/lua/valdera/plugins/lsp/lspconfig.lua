@@ -9,6 +9,7 @@ return {
   config = function()
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
+    local util = require("lspconfig/util")
 
     -- import mason_lspconfig plugin
     local mason_lspconfig = require("mason-lspconfig")
@@ -134,6 +135,24 @@ return {
             client.server_capabilities.signatureHelpProvider = false
           end,
           capabilities = capabilities,
+        })
+      end,
+      ["rust_analyzer"] = function() end,
+      ["gopls"] = function()
+        lspconfig["gopls"].setup({
+          capabilities = capabilities,
+          cmd = { "gopls" },
+          filetypes = { "go", "gomod", "gowork", "gotmpl" },
+          root_dir = util.root_pattern("go.mod", ".git", "go.work"),
+          settings = {
+            gopls = {
+              analyses = {
+                unusedparams = true,
+              },
+              completeUnimported = true,
+              usePlaceholders = true,
+            },
+          },
         })
       end,
     })

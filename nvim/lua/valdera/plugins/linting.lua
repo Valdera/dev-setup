@@ -12,7 +12,6 @@ return {
       svelte = { "eslint_d" },
       python = { "pylint" },
       terraform = { "tflint" },
-      go = { "golangci-lint" },
       cpp = { "cpplint" },
       cmake = { "cmakelang" },
     }
