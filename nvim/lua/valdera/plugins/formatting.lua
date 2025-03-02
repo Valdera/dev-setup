@@ -5,6 +5,11 @@ return {
     local conform = require("conform")
 
     conform.setup({
+      formatters = {
+        black = {
+          prepend_args = { "--fast" },
+        }
+      },
       formatters_by_ft = {
         javascript = { "prettier" },
         typescript = { "prettier" },
@@ -30,7 +35,7 @@ return {
       format_on_save = {
         lsp_fallback = true,
         async = false,
-        timeout_ms = 1000,
+        timeout_ms = 2000,
       },
     })
 
